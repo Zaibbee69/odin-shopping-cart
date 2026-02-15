@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
-import { Theme } from "@radix-ui/themes";
+import { Theme, ThemePanel } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import "./index.css";
 
@@ -13,6 +13,7 @@ createRoot(document.getElementById("root")).render(
       {/* Add Context Provider here */}
       <Theme appearance="dark" accentColor="red" grayColor="gray">
         <App />
+        {/* <ThemePanel /> */}
       </Theme>
     </BrowserRouter>
   </StrictMode>,
