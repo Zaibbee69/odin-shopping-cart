@@ -19,7 +19,6 @@ export default function Navbar() {
             <Text>
               <CartIcon count={3} />
             </Text>
-            <Text>Icon 2</Text>
           </Flex>
         </Box>
       </Container>

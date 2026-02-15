@@ -6,13 +6,28 @@
 --amber-flame: #ffd60a;
 --slate-grey: #7d8491ff; */
 
+/* font-family: "Montserrat", sans-serif; */
+/* font-family: "Inter", sans-serif; */
+/* font-family: "Playfair Display", serif; */
+/* font-family: "DM Sans", sans-serif; */
+
 @theme {
     --color-brand-space: #14213D;
     --color-brand-red: #E63946;
     --color-brand-white: #F1FAEE;
     --color-brand-frost: #A8DADC;
     --color-brand-steel: #457b9d;
+    --font-sans: "DM Sans", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-playfair: "Playfair Display", serif;
+    --font-inter: "Inter", sans-serif;
 }
+
+.radix-themes {
+    --default-font-family: "DM Sans", sans-serif;
+    --heading-font-family: "Montserrat", sans-serif;
+}
+
 
 :root,
 .light,
