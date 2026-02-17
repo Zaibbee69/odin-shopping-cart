@@ -14,8 +14,10 @@
     "@tailwindcss/vite": "^4.1.18",
     "gsap": "^3.14.2",
     "lucide-react": "^0.563.0",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-responsive-masonry": "^2.7.1",
     "swr": "^2.4.0",
     "tailwindcss": "^4.1.18"
   },
