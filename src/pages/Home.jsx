@@ -1,5 +1,5 @@
 import { useTrendingMovies } from "../hooks/useTrendingMovies";
-import { Card, Box, Heading, Text, Container } from "@radix-ui/themes";
+import { Heading, Text, Button } from "@radix-ui/themes";
 import MasonryLayout from "../components/MasonryLayout";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -33,56 +33,58 @@ export default function Home() {
   console.log(movies);
 
   return (
-    <Carousel
-      swipeable={true}
-      draggable={false}
-      showDots={true}
-      renderDotsOutside={true}
-      responsive={responsive}
-      infinite={true}
-      autoPlaySpeed={1000}
-      centerMode={true}
-      keyBoardControl={true}
-      rewindWithAnimation={true}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-    >
-      {movies.map((movie) => {
-        const isWide = movie.id % 10 < 3;
-        const imagePath = isWide ? movie.backdrop_path : movie.poster_path;
-        const size = isWide ? "w780" : "w342";
+    <>
+      <Carousel
+        swipeable
+        draggable
+        responsive={responsive}
+        infinite
+        autoPlay
+        autoPlaySpeed={4000}
+        keyBoardControl
+        rewindWithAnimation
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        centerMode={false}
+      >
+        {movies.slice(0, 5).map((movie) => {
+          if (!movie.backdrop_path) return null;
 
-        if (!imagePath) return null;
-
-        return (
-          <Card
-            key={movie.id}
-            asChild
-            className="group overflow-hidden bg-neutral-900 border border-neutral-800 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-black/40"
-          >
-            <a href="#" className="block relative">
+          return (
+            <div key={movie.id} className="relative w-screen h-screen">
+              {/* Background Image */}
               <img
-                src={`https://image.tmdb.org/t/p/${size}${imagePath}`}
+                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 alt={movie.title}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover"
               />
 
-              <Box className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
 
-              <Box className="absolute bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Heading
-                  as="p"
-                  className="text-white font-semibold text-sm md:text-base"
-                >
-                  {movie.title}
-                </Heading>
-              </Box>
-              <Box>
-                <Text>Ratings: {movie.vote_average}</Text>
-              </Box>
-            </a>
-          </Card>
-        );
-      })}
-    </Carousel>
+              {/* Left Content */}
+              <div className="absolute inset-0 flex items-center">
+                <div className="px-8 md:px-16 max-w-xl">
+                  <Heading
+                    size="8"
+                    className="text-white font-bold mb-4 leading-tight"
+                  >
+                    {movie.title}
+                  </Heading>
+
+                  <Text size="4" className="text-neutral-300 mb-6 line-clamp-3">
+                    {movie.overview}
+                  </Text>
+
+                  <Button variant="surface" size="3" radius="large">
+                    Rent Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </Carousel>
+      <MasonryLayout />
+    </>
   );
 }
