@@ -1,18 +1,7 @@
-import { useTrendingMovies } from "../hooks/useTrendingMovies";
-
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Card, Text, Box, Heading } from "@radix-ui/themes";
 
-export default function MasonryLayout() {
-  const { movies, isLoading, isError } = useTrendingMovies();
-  if (isLoading)
-    return <p className="text-white text-center py-20">Loading...</p>;
-
-  if (isError)
-    return (
-      <p className="text-red-500 text-center py-20">Failed to load movies</p>
-    );
-
+export default function MasonryLayout({ movies }) {
   return (
     <div className="px-6 md:px-12 lg:px-20 py-12">
       <ResponsiveMasonry
