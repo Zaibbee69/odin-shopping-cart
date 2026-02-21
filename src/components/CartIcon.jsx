@@ -3,7 +3,7 @@ import { ShoppingCart } from "lucide-react";
 export default function CartIcon({ count }) {
   return (
     <div className="relative inline-block">
-      <ShoppingCart color="#A8DADC" className="w-6 h-6" />
+      <ShoppingCart color="#faa80fff" className="w-6 h-6" />
 
       {count > 0 && (
         <span

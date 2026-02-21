@@ -2,6 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import { Heading, Text, Button } from "@radix-ui/themes";
+import { CircleDollarSign } from "lucide-react";
 
 export default function CarouselImg({ movies }) {
   const responsive = {
@@ -58,7 +59,7 @@ export default function CarouselImg({ movies }) {
 
                 <Text
                   size="3"
-                  className="text-[#A8DADC] mb-6 line-clamp-3 !font-inter"
+                  className="text-gray-300 mb-6 line-clamp-3 !font-inter"
                 >
                   {movie.overview}
                 </Text>
@@ -69,6 +70,7 @@ export default function CarouselImg({ movies }) {
                   size="3"
                   radius="large"
                 >
+                  <CircleDollarSign />
                   Rent Now
                 </Button>
               </div>

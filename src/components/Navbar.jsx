@@ -2,7 +2,6 @@ import CartIcon from "./CartIcon";
 
 import { Flex, Container, Heading, Box, Text } from "@radix-ui/themes";
 import Logo from "../assets/logo.svg";
-import { ShoppingCart } from "lucide-react";
 import PillNav from "./PillNav";
 
 export default function Navbar() {
@@ -25,10 +24,10 @@ export default function Navbar() {
           activeHref="/"
           className="custom-nav"
           ease="power2.easeOut"
-          baseColor="#457b9d"
-          pillColor="#A8DADC"
-          hoveredPillTextColor="#ffffffff"
-          pillTextColor="#000000"
+          baseColor="#9e0031ff"
+          pillColor="#1c0221ff"
+          hoveredPillTextColor="#fffeffff"
+          pillTextColor="#fffeffff"
           theme="dark"
           initialLoadAnimation={false}
         />

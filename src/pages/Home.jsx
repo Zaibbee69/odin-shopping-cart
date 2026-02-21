@@ -1,4 +1,5 @@
 import { useTrendingMovies } from "../hooks/useTrendingMovies";
+import { Spinner } from "@radix-ui/themes";
 import CarouselImg from "../components/CarouselImg";
 import MasonryLayout from "../components/MasonryLayout";
 
@@ -6,7 +7,11 @@ export default function Home() {
   const { movies, isLoading, isError } = useTrendingMovies();
 
   if (isLoading)
-    return <p className="text-white text-center py-20">Loading...</p>;
+    return (
+      <p className="text-white text-center py-20">
+        <Spinner size="3" />
+      </p>
+    );
 
   if (isError)
     return (

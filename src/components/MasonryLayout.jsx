@@ -1,9 +1,21 @@
+import GradientText from "./GradientText";
+
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Card, Text, Box, Heading } from "@radix-ui/themes";
 
 export default function MasonryLayout({ movies }) {
   return (
     <div className="px-6 md:px-12 lg:px-20 py-12">
+      <GradientText
+        className="text-6xl font-extrabold mt-3 mb-5"
+        colors={["#9e0031ff", "#faa80fff", "#fffeffff"]}
+        duration={8}
+      >
+        <Heading as="h2" size="8" align={"left"}>
+          Hot Releases
+        </Heading>
+      </GradientText>
+
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 3, 1280: 4 }}
       >
