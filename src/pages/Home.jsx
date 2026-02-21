@@ -2,6 +2,7 @@ import { useTrendingMovies } from "../hooks/useTrendingMovies";
 import { Spinner } from "@radix-ui/themes";
 import CarouselImg from "../components/CarouselImg";
 import MasonryLayout from "../components/MasonryLayout";
+import CallToAction from "../components/CallToAction";
 
 export default function Home() {
   const { movies, isLoading, isError } = useTrendingMovies();
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <CarouselImg movies={movies} />
       <MasonryLayout movies={movies} />
+      <CallToAction />
     </>
   );
 }
