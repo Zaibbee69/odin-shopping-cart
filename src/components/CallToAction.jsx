@@ -4,7 +4,7 @@ import { Telescope } from "lucide-react";
 export default function CallToAction() {
   return (
     <>
-      <Heading as="h3" size="9" className="mt-6">
+      <Heading as="h3" size="9" className="mt-6! mb-6!">
         <Flex align="center" justify="center" gap="2">
           Explore More
           <Telescope size={64} color="#faa80fff" />
