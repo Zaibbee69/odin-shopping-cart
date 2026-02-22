@@ -3,7 +3,7 @@ import GradientText from "./GradientText";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Card, Text, Box, Heading } from "@radix-ui/themes";
 
-export default function MasonryLayout({ movies }) {
+export default function MasonryLayout({ movies, header = "Hot Releases" }) {
   return (
     <div className="px-6 md:px-12 lg:px-20 py-12">
       <GradientText
@@ -12,7 +12,7 @@ export default function MasonryLayout({ movies }) {
         duration={8}
       >
         <Heading as="h2" size="8" align={"left"}>
-          Hot Releases
+          {header}
         </Heading>
       </GradientText>
 
