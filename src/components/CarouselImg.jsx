@@ -3,6 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import { Heading, Text, Button } from "@radix-ui/themes";
 import { CircleDollarSign } from "lucide-react";
+import { Link } from "react-router";
 
 export default function CarouselImg({ movies }) {
   const responsive = {
@@ -64,15 +65,21 @@ export default function CarouselImg({ movies }) {
                   {movie.overview}
                 </Text>
 
-                <Button
-                  className="!mt-4 !font-montserrat"
-                  variant="surface"
-                  size="3"
-                  radius="large"
+                <Link
+                  to={`/detail/${movie.id}`}
+                  prefetch="intent"
+                  className="block relative"
                 >
-                  <CircleDollarSign />
-                  Rent Now
-                </Button>
+                  <Button
+                    className="!mt-4 !font-montserrat"
+                    variant="surface"
+                    size="3"
+                    radius="large"
+                  >
+                    <CircleDollarSign />
+                    Rent Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

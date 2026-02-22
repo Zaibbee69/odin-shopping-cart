@@ -2,7 +2,8 @@ import GradientText from "./GradientText";
 import { Link } from "react-router";
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { Card, Text, Box, Heading } from "@radix-ui/themes";
+import { Card, Text, Heading, Flex } from "@radix-ui/themes";
+import { DollarSign } from "lucide-react";
 
 export default function MasonryLayout({ movies, header = "Hot Releases" }) {
   return (
@@ -61,7 +62,10 @@ export default function MasonryLayout({ movies, header = "Hot Releases" }) {
 
                     {/* Rent Button */}
                     <Text className="ml-3 bg-[#faa80fff] text-black text-xs font-bold px-3 py-1.5 rounded-md opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      20$
+                      <Flex align="center" justify="center" gap="2">
+                        <DollarSign size={12} />
+                        {movie.price}
+                      </Flex>
                     </Text>
                   </div>
                 </Link>

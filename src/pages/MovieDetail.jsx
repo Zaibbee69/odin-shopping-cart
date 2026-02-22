@@ -10,7 +10,7 @@ import {
   Badge,
   Button,
 } from "@radix-ui/themes";
-import { Flame, CircleDollarSign } from "lucide-react";
+import { Flame, CircleDollarSign, DollarSign } from "lucide-react";
 
 const formatRuntime = (minutes) => {
   if (!minutes) return "";
@@ -34,8 +34,6 @@ export default function MovieDetail() {
     return (
       <p className="text-red-500 text-center py-20">Failed to load movies</p>
     );
-
-  console.log(movie);
 
   return (
     <>
@@ -69,7 +67,10 @@ export default function MovieDetail() {
         {/* Price Tag (Bottom Right) */}
         <Box className="absolute bottom-10 right-10 z-10">
           <div className="bg-[var(--color-brand-frost)] text-black font-bold text-lg px-6 py-3 rounded-xl shadow-2xl">
-            $20
+            <Flex align="center" justify="center" gap="2">
+              <DollarSign size={18} />
+              {movie.price}
+            </Flex>
           </div>
         </Box>
       </Box>

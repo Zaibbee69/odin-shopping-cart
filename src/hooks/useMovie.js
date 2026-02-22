@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { fetcher } from "./fetcher";
+import { generatePriceFromId } from "./generatePriceFromId";
 
 export function useMovie(id) {
     const { data, error, isLoading } = useSWR(
@@ -9,8 +10,15 @@ export function useMovie(id) {
         fetcher
     );
 
+    const movieWithPrice = data
+        ? {
+            ...data,
+            price: generatePriceFromId(data.id),
+        }
+        : undefined;
+
     return {
-        movie: data,
+        movie: movieWithPrice,
         isLoading,
         isError: error,
     };
