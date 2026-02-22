@@ -13,7 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="rent" element={<Rent />} />
         <Route path="about" element={<About />} />
-        <Route path="detail" element={<MovieDetail />} />
+        <Route path="detail/:id" element={<MovieDetail />} />
       </Route>
     </Routes>
   );

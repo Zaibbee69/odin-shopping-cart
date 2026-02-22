@@ -19,8 +19,6 @@ export default function Home() {
       <p className="text-red-500 text-center py-20">Failed to load movies</p>
     );
 
-  console.log(movies);
-
   return (
     <>
       <CarouselImg movies={movies} />

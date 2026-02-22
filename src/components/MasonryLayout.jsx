@@ -1,4 +1,5 @@
 import GradientText from "./GradientText";
+import { Link } from "react-router";
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Card, Text, Box, Heading } from "@radix-ui/themes";
@@ -33,7 +34,11 @@ export default function MasonryLayout({ movies, header = "Hot Releases" }) {
                 asChild
                 className="group overflow-hidden bg-neutral-900 border border-neutral-800 rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-black/40"
               >
-                <a href="#" className="block relative">
+                <Link
+                  to={`/detail/${movie.id}`}
+                  prefetch="intent"
+                  className="block relative"
+                >
                   {/* Image */}
                   <img
                     src={`https://image.tmdb.org/t/p/${size}${imagePath}`}
@@ -59,7 +64,7 @@ export default function MasonryLayout({ movies, header = "Hot Releases" }) {
                       20$
                     </Text>
                   </div>
-                </a>
+                </Link>
               </Card>
             );
           })}
