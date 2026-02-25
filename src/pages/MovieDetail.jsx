@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { useOutletContext } from "react-router";
 import { useMovie } from "../hooks/useMovie";
 import { Spinner } from "@radix-ui/themes";
 import {
@@ -22,6 +23,18 @@ const formatRuntime = (minutes) => {
 export default function MovieDetail() {
   const { id } = useParams();
   const { movie, isLoading, isError } = useMovie(id);
+  const { setItems } = useOutletContext();
+
+  const handleRent = (movie) => {
+    setItems((prev) => {
+      if (prev.find((item) => item.id === movie.id)) {
+        return prev; // already in cart
+      }
+      console.log(prev);
+
+      return [...prev, movie];
+    });
+  };
 
   if (isLoading)
     return (
@@ -74,7 +87,7 @@ export default function MovieDetail() {
           </div>
         </Box>
       </Box>
-      <Heading as="h3" size="9" className="mt-6! mb-6! p-4! line-clamp-1!">
+      <Heading as="h3" size="7" className="mt-6! mb-6! p-4! line-clamp-1!">
         <Flex align="center" justify="center" gap="2">
           {movie.tagline}
           <Flame size={64} color="#faa80fff" />
@@ -86,12 +99,15 @@ export default function MovieDetail() {
         <Box size="2" className="p-4!">
           <Card className="bg-[var(--color-brand-space)] border border-white/10 rounded-2xl p-10 shadow-2xl shadow-black/40">
             <Flex direction="column" gap="6">
-              <Box maxWidth={"255px"}>
+              <Box maxWidth={"400px"}>
                 <Heading size="6" className="text-brand-red mb-3">
                   Overview
                 </Heading>
 
-                <Text size="3" className="text-white/80 leading-relaxed">
+                <Text
+                  size="3"
+                  className="text-white/80 leading-relaxed line-clamp-5!"
+                >
                   {movie.overview}
                 </Text>
               </Box>
@@ -116,8 +132,18 @@ export default function MovieDetail() {
             </Flex>
           </Card>
         </Box>
-        <Button size="4" radius="large">
+        <Button size="4" radius="large" onClick={() => handleRent(movie)}>
           <CircleDollarSign /> Rent Now
+        </Button>
+        <Button
+          size="1"
+          variant="soft"
+          color="red"
+          onClick={() =>
+            setItems((prev) => prev.filter((item) => item.id !== movie.id))
+          }
+        >
+          Remove
         </Button>
       </Flex>
     </>
